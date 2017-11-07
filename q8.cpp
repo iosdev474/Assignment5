@@ -4,10 +4,11 @@
 
 int main()
 {
-	int a[R][C] = { {1, 2, 3, 4, 5, 6},
-					{7, 8, 9, 10, 11, 12},
-					{13, 14, 15, 16, 17, 18}
-				  };
+	int a[R][C];
+	int i,j;
+	for(i=0;i<R;i++)
+		for(j=0;j<C;j++)
+			scanf("%d",&arr[i][j]);
 	int m=R,n=C;
 	int i, k = 0, l = 0;
 
