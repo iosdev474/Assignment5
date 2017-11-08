@@ -1,32 +1,39 @@
 #include<stdio.h>
-#define max 50
-int main()
-{
-	int arr[max];
-	int n,i,j,k,temp;
-	printf("Enter the number of terms you required: ");
+
+    void segregate0and1(int arr[], int n)
+    {
+        int count = 0;
+     
+        for (int i = 0; i < n; i++) {
+            if (arr[i] == 0)
+                count++;
+        }
+
+        for (int i = 0; i < count; i++)
+            arr[i] = 0;
+ 
+        for (int i = count; i < n; i++)
+            arr[i] = 1;
+    }
+     
+    void print(int arr[], int n)
+    {
+	int i;
+        printf("Array after segregation is ");
+        for (i = 0; i < n; i++)
+            printf("%d ",arr[i]);    
+    }
+     
+    int main()
+    {
+        int n,i;
 	scanf("%d",&n);
-	printf("Enter an array of %d elements:",n);
+ 	int arr[n];
 	for(i=0;i<n;i++)
 	{
 		scanf("%d",&arr[i]);
 	}
-	for(i=0;i<n;i++)
-	{
-		for(j=0;j<n-1;j++)
-		{
-			if(arr[j]==1)
-			{
-				temp=arr[j];
-				arr[j]=arr[j+1];
-				arr[j+1]=temp;
-			}
-		}
-	}
-	printf("{");
-	for(k=0;k<n;k++) 
-	{
-		printf("%d, ",arr[k]);
-	}
-	printf("\b\b}");
-}
+        segregate0and1(arr, n);
+        print(arr, n);
+        return 0;
+    }
